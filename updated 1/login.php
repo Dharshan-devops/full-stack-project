@@ -10,18 +10,21 @@ if($con==TRUE){
 echo "DB connected";
 }
 
-$nm=$_REQUEST['name'];
+$em=$_REQUEST['email'];
 $pw=$_REQUEST['password'];
 
-$sql="SELECT name,password from login where name='$nm' and  password='$pw';";
+$sql="SELECT email,password from login where email='$em' and  password='$pw';";
 $c=mysqli_query($con,$sql);
 if(mysqli_num_rows($c)>0){
+	
 
-	header("location:index.html");
+	header("location:main.html");
 	
 }
 else{
-	echo "INVALID USER or PASS";
+	echo'<script>alert("Invalid email or Password")</script>';
+	sleep(5);
+	header("location:index.html");
 	
 }
 

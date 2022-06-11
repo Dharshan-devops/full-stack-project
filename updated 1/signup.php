@@ -11,14 +11,14 @@ echo "DB connected";
 }
 
 $nm=$_REQUEST['name'];
+$em=$_REQUEST['email'];
 $pw=$_REQUEST['password'];
 
-echo $nm;
 
-$sql="CREATE TABLE login(name varchar(20),password varchar(20));";
-$sql="INSERT INTO login VALUES('$nm','$pw');";
+$sql="CREATE TABLE login(name varchar(20),email varchar(20),password varchar(20));";
+$sql="INSERT INTO login VALUES('$nm','$em','$pw');";
 if(mysqli_query($con,$sql)){
-	header("location:login.html");
+	header("location:index.html");
 }
 
 ?>
